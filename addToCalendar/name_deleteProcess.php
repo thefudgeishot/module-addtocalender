@@ -18,26 +18,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 include '../../gibbon.php';
+
 include './moduleFunctions.php';
 
-$URL = $gibbon->session->get('absoluteURL') . '/index.php?q=/modules/' . $gibbon->session->get('module') . '/name_add.php';
+$URL = $gibbon->session->get('absoluteURL') . '/index.php?q=/modules/' . $gibbon->session->get('module') . '/name.php';
 
-if (!isActionAccessible($guid, $connection2, '/modules/Module Name/name_add.php')) {
+if (!isActionAccessible($guid, $connection2, '/modules/addToCalendar/name_delete.php')) {
     // Access denied
     $URL = $URL.'&return=error0';
     header("Location: {$URL}");
 } else {
     // Proceed!
-    $thing = $_POST['thing']; // The variables you will be processing
+    $ID = $_POST['ID']; // The ID of the item you will be deleting
 
     // Check that your required variables are present
-    if (empty($thing)) { 
+    if (empty($thing)) {
         $URL = $URL.'&return=error3';
         header("Location: {$URL}");
         exit;
-    } 
-    
-    // Your SQL or Gateway insert query
-    $URL .= "&return=success0&editID=$AI";
+    }
+
+    // Your SQL or Gateway delete query
+    $URL .= "&return=success";
     header("Location: {$URL}");
 }

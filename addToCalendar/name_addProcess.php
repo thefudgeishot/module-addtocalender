@@ -20,9 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 include '../../gibbon.php';
 include './moduleFunctions.php';
 
-$URL = $gibbon->session->get('absoluteURL') . '/index.php?q=/modules/' . $gibbon->session->get('module') . '/name.php';
+$URL = $gibbon->session->get('absoluteURL') . '/index.php?q=/modules/' . $gibbon->session->get('module') . '/name_add.php';
 
-if (!isActionAccessible($guid, $connection2, '/modules/Module Name/name_edit.php')) {
+if (!isActionAccessible($guid, $connection2, '/modules/addToCalendar/name_add.php')) {
     // Access denied
     $URL = $URL.'&return=error0';
     header("Location: {$URL}");
@@ -31,13 +31,13 @@ if (!isActionAccessible($guid, $connection2, '/modules/Module Name/name_edit.php
     $thing = $_POST['thing']; // The variables you will be processing
 
     // Check that your required variables are present
-    if ($name == '') { 
+    if (empty($thing)) {
         $URL = $URL.'&return=error3';
         header("Location: {$URL}");
         exit;
     }
 
-    // Your SQL or Gateway alter query
+    // Your SQL or Gateway insert query
     $URL .= "&return=success0&editID=$AI";
     header("Location: {$URL}");
 }

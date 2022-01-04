@@ -17,17 +17,16 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-use Gibbon\Forms\Prefab\DeleteForm;
-
 // Module includes
 require_once __DIR__ . '/moduleFunctions.php';
 
-if (!isActionAccessible($guid, $connection2, "/modules/Module Name/name_delete.php")) {
+if (!isActionAccessible($guid, $connection2, '/modules/addToCalendar/name_edit.php')) {
 	// Access denied
 	$page->addError(__('You do not have access to this action.'));
-}
-else {
+} else {
     $ID = $_POST['ID']; // The ID / primary key param posted from the name_view page.
-    $form = DeleteForm::createForm($gibbon->session->get('absoluteURL') . '/index.php?q=/modules/' . $gibbon->session->get('module') . '/name.php?ID=$ID');
-    echo $form->getOutput();
-}	
+
+    // For a form
+    // Check out https:// gist.github.com/SKuipers/3a4de3a323ab9d0969951894c29940ae for a cheatsheet / guide
+    // Don't forget to use the posted ID and a query to be able to $form->loadAllValuesFrom($values);
+}
