@@ -20,23 +20,23 @@ along with this program.  If not, see <http:// www.gnu.org/licenses/>.
 // This file describes the module, including database tables
 
 // Basic variables
-$name        = '';            // The name of the module as it appears to users. Needs to be unique to installation. Also the name of the folder that holds the unit.
-$description = '';            // Short text description
+$name        = 'addToCalendar';            // The name of the module as it appears to users. Needs to be unique to installation. Also the name of the folder that holds the unit.
+$description = 'Allows the gibbon calendar to be added to calendar services like google and apple calendars.';            // Short text description
 $entryURL    = "index.php";   // The landing page for the unit, used in the main menu
 $type        = "Additional";  // Do not change.
 $category    = '';            // The main menu area to place the module in
-$version     = '';            // Version number
-$author      = '';            // Your name
-$url         = '';            // Your URL
+$version     = '1.0';            // Version number
+$author      = 'Vaughan Lowe';            // Your name
+$url         = 'https://github.com/thefudgeishot';            // Your URL
 
 // Module tables & gibbonSettings entries
-$moduleTables[] = ''; // One array entry for every database table you need to create. Might be nice to preface the table name with the module name, to keep the db neat. 
+$moduleTables[] = ''; // One array entry for every database table you need to create. Might be nice to preface the table name with the module name, to keep the db neat.
 $moduleTables[] = ''; // Also can be used to put data into gibbonSettings. Other sql can be run, but resulting data will not be cleaned up on uninstall.
 
 // Add gibbonSettings entries
 $gibbonSetting[] = "";
 
-// Action rows 
+// Action rows
 // One array per action
 $actionRows[] = [
     'name'                      => '', // The name of the action (appears to user in the right hand side module menu)
@@ -49,7 +49,7 @@ $actionRows[] = [
     'menuShow'                  => 'Y', // Whether or not this action shows up in menus or if it's hidden
     'defaultPermissionAdmin'    => 'Y', // Default permission for built in role Admin
     'defaultPermissionTeacher'  => 'Y', // Default permission for built in role Teacher
-    'defaultPermissionStudent'  => 'N', // Default permission for built in role Student
+    'defaultPermissionStudent'  => 'Y', // Default permission for built in role Student
     'defaultPermissionParent'   => 'N', // Default permission for built in role Parent
     'defaultPermissionSupport'  => 'Y', // Default permission for built in role Support
     'categoryPermissionStaff'   => 'Y', // Should this action be available to user roles in the Staff category?
